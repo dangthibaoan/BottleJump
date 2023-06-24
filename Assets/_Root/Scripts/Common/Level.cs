@@ -5,12 +5,13 @@ using TMPro;
 
 public class Level : MonoBehaviour
 {
-    private bool isEnd = false;
+    private bool isEnd;
     private int score;
 
     private void Awake()
     {
         score = 0;
+        isEnd = false;
         PopupController.Instance.GetPopup<GamePopup>().setCurrentScore(score);
     }
 
@@ -24,13 +25,12 @@ public class Level : MonoBehaviour
             if (status == true)
             {
                 PopupController.Instance.GetPopup<WinPopup>().SetTotalScore(score);
-                PopupController.Instance.Show<WinPopup>();
             }
             else
             {
                 PopupController.Instance.GetPopup<WinPopup>().Lose(score);
-                PopupController.Instance.Show<WinPopup>();
             }
+            GameController.Instance.FinishGame();
         }
     }
     public void GetScore(int bonus)

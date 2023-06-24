@@ -23,7 +23,6 @@ public static class Data
         set => SetInt(Constant.MAX_SCORE, value);
     }
 
-
     public static bool SoundState
     {
         get => GetBool(Constant.SOUND_STATE, true);

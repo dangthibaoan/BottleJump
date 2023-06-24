@@ -9,24 +9,24 @@ public class JumpController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     // [SerializeField] float duration = 1;
     [SerializeField] Vector3 cameraPositionDefine;
     [SerializeField] GameObject bottle;
-    public Camera MCamera;
+    [SerializeField] GameObject MCamera;
     private void Awake()
     {
-        MCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        MCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
     private void Update()
     {
         Jump();
     }
-    private Vector3 GetPointerPosition()
-    {
-        Vector3 pointerPosition = Vector3.zero;
-        // pointerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pointerPosition.z = 0;
-        pointerPosition.y = bottle.transform.position.y + 1;
-        pointerPosition.x = bottle.transform.position.x + 2;
-        return pointerPosition;
-    }
+    // private Vector3 GetPointerPosition()
+    // {
+    //     Vector3 pointerPosition = Vector3.zero;
+    //     // pointerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //     pointerPosition.z = 0;
+    //     pointerPosition.y = bottle.transform.position.y + 1;
+    //     pointerPosition.x = bottle.transform.position.x + 2;
+    //     return pointerPosition;
+    // }
 
     public void OnPointerDown(PointerEventData eventData)
     {

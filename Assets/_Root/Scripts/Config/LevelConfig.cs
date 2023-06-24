@@ -10,4 +10,8 @@ public class LevelConfig : ScriptableObject
     {
         return Levels[index % Levels.Count];
     }
+    public int LevelCount()
+    {
+        return Levels.Count;
+    }
 }

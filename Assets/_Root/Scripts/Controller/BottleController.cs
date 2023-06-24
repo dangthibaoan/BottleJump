@@ -4,13 +4,15 @@ using DG.Tweening;
 
 public class BottleController : MonoBehaviour
 {
-    private bool isEnd = false;
+    private bool isEnd;
     [SerializeField] Rigidbody2D rigid;
     [SerializeField] GameObject TrashCan;
     [SerializeField] Level CurrentLevel;
 
     private void Awake()
     {
+        isEnd = false;
+        rigid.bodyType = RigidbodyType2D.Dynamic;
         rigid = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -39,10 +41,12 @@ public class BottleController : MonoBehaviour
 
         if (other.gameObject.tag == "Finish")
         {
+            isEnd = true;
             CurrentLevel.endLevel(false);
         }
         if (other.gameObject.name == TrashCan.name)
         {
+            isEnd = true;
             rigid.bodyType = RigidbodyType2D.Static;
             CurrentLevel.endLevel(true);
         }

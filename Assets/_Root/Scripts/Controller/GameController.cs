@@ -3,8 +3,6 @@ using UnityEngine.UI;
 public class GameController : Singleton<GameController>
 {
     public Level LevelCurrent;
-    //public Camera MainCamera;
-
 
     protected override void Awake()
     {
