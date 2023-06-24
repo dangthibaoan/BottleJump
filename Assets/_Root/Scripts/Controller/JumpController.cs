@@ -4,12 +4,12 @@ using DG.Tweening;
 
 public class JumpController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] float jumpPower = 3;
-    [SerializeField] int jumpCount = 1;
-    [SerializeField] float duration = 1;
+    // [SerializeField] float jumpPower = 3;
+    // [SerializeField] int jumpCount = 1;
+    // [SerializeField] float duration = 1;
+    [SerializeField] Vector3 cameraPositionDefine;
     [SerializeField] GameObject bottle;
     public Camera MCamera;
-    [SerializeField] Vector3 cameraPositionDefine;
     private void Awake()
     {
         MCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -35,7 +35,8 @@ public class JumpController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        bottle.transform.DOJump(GetPointerPosition(), jumpPower, jumpCount, duration);
+        bottle.GetComponent<Rigidbody2D>().AddForce(new Vector2(100, 300));
+        //bottle.transform.DOJump(GetPointerPosition(), jumpPower, jumpCount, duration);
     }
     public void Jump()
     {

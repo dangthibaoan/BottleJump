@@ -3,7 +3,7 @@ using TMPro;
 
 public class GamePopup : Popup
 {
-    public TextMeshProUGUI txt;
+    [SerializeField] TextMeshProUGUI txt;
     public void OnClickBackButton()
     {
         SoundController.Instance.PlayOnce(SoundType.ButtonClick);

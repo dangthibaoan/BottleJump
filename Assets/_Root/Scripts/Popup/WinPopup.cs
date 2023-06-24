@@ -3,10 +3,11 @@ using TMPro;
 
 public class WinPopup : Popup
 {
-    public Level1 lv1;
     public TextMeshProUGUI NewScore;
     public TextMeshProUGUI BestScore;
-    public GameObject img;
+    public GameObject NewRecordImage;
+    public GameObject CongratsImage;
+
     public void OnClickHomeButton()
     {
         // Data.SetInt(Constant.MAX_SCORE, 0);
@@ -22,16 +23,25 @@ public class WinPopup : Popup
 
     public void SetTotalScore(int score)
     {
-        if (score >= Data.MaxScore)
+        SoundController.Instance.PlayOnce(SoundType.Win);
+        CongratsImage.SetActive(true);
+        if (score > Data.MaxScore)
         {
-            SoundController.Instance.PlayOnce(SoundType.Win);
-            img.SetActive(true);
+            NewRecordImage.SetActive(true);
+            Data.SetInt(Constant.MAX_SCORE, score);
         }
         else
         {
-            SoundController.Instance.PlayOnce(SoundType.Lose);
-            img.SetActive(false);
+            NewRecordImage.SetActive(false);
         }
+        NewScore.SetText(score + "");
+        BestScore.SetText(Data.MaxScore + "");
+    }
+    public void Lose(int score)
+    {
+        SoundController.Instance.PlayOnce(SoundType.Lose);
+        CongratsImage.SetActive(false);
+        NewRecordImage.SetActive(false);
         NewScore.SetText(score + "");
         BestScore.SetText(Data.MaxScore + "");
     }

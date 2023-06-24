@@ -10,12 +10,12 @@ public class GameController : Singleton<GameController>
     {
         base.Awake();
 
-        PopupController.Instance.Show<GamePopup>();
+        PopupController.Instance.Show<LevelPopup>();
     }
 
     private void Start()
     {
-        LoadLevel();
+        //LoadLevel();
     }
 
     public void LoadLevel()
