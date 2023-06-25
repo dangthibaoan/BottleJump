@@ -65,4 +65,14 @@ public class SoundController : Singleton<SoundController>
 
         return audioSource;
     }
+
+    public void StopAudio(SoundType soundType)
+    {
+        AudioClip clip = AudioClips[(int)soundType];
+
+        if (!clip || !Data.MusicState) return;
+
+        OnceAudio.clip = clip;
+        OnceAudio.Stop();
+    }
 }

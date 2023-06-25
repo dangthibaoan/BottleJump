@@ -23,6 +23,12 @@ public static class Data
         set => SetInt(Constant.MAX_SCORE, value);
     }
 
+    public static string LevelData
+    {
+        get => GetString(Constant.LEVEL_DATA, null);
+        set => SetString(Constant.LEVEL_DATA, value);
+    }
+
     public static bool SoundState
     {
         get => GetBool(Constant.SOUND_STATE, true);

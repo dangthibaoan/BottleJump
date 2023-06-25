@@ -7,6 +7,7 @@ public class Level : MonoBehaviour
 {
     private bool isEnd;
     private int score;
+    private int maxScore;
 
     private void Awake()
     {

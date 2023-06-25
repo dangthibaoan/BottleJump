@@ -13,6 +13,8 @@ public class WinPopup : Popup
     {
         PopupController.Instance.HideAll();
         SceneController.Instance.LoadGameScene();
+        SoundController.Instance.StopAudio(SoundType.Lose);
+        SoundController.Instance.StopAudio(SoundType.Win);
     }
 
     public void OnClickRetryButton()
@@ -20,12 +22,16 @@ public class WinPopup : Popup
         PopupController.Instance.HideAll();
         GameController.Instance.ReplayLevel();
         PopupController.Instance.Show<GamePopup>();
+        SoundController.Instance.StopAudio(SoundType.Lose);
+        SoundController.Instance.StopAudio(SoundType.Win);
     }
     public void OnClickNextLevelButton()
     {
         PopupController.Instance.HideAll();
         GameController.Instance.NextLevel();
         PopupController.Instance.Show<GamePopup>();
+        SoundController.Instance.StopAudio(SoundType.Lose);
+        SoundController.Instance.StopAudio(SoundType.Win);
     }
 
     public void SetTotalScore(int score)

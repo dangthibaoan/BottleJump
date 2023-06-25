@@ -7,6 +7,8 @@ public class HomeController : Singleton<HomeController>
     public GameObject btnSoundOn, btnSoundOff;
     private void Start()
     {
+        PopupController.Instance.DisablePopupCamera();
+
         if (Data.MusicState == true)
         {
             btnSoundOff.SetActive(false);
@@ -25,6 +27,8 @@ public class HomeController : Singleton<HomeController>
     public void OnClickStartButton()
     {
         SceneController.Instance.LoadGameScene();
+
+        PopupController.Instance.ActivePopupCamera();
     }
 
     public void OnClickSoundOnButton()

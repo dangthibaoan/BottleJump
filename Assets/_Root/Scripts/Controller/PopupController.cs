@@ -72,6 +72,15 @@ public class PopupController : Singleton<PopupController>
 
     public void MoveCamera(Vector3 pos, Vector3 posDefine)
     {
+        pos.z = posDefine.z;
         Camera.transform.position = pos + posDefine;
+    }
+    public void ActivePopupCamera()
+    {
+        Camera.gameObject.SetActive(true);
+    }
+    public void DisablePopupCamera()
+    {
+        Camera.gameObject.SetActive(false);
     }
 }
