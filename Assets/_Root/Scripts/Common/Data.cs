@@ -25,7 +25,7 @@ public static class Data
 
     public static string LevelData
     {
-        get => GetString(Constant.LEVEL_DATA, null);
+        get => GetString(Constant.LEVEL_DATA, "");
         set => SetString(Constant.LEVEL_DATA, value);
     }
 

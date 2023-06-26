@@ -51,12 +51,30 @@ public class WinPopup : Popup
         {
             NewRecordImage.SetActive(true);
             Data.SetInt(Constant.MAX_SCORE, score);
+
+            string s = "";
+            for (int i = 0; i < ConfigController.Level.LevelCount(); i++)
+            {
+                if (i == Data.IndexLevel)
+                {
+                    s += "-" + score.ToString();
+                }
+                else
+                {
+                    s += "-" + ConfigController.Level.MaxScoreLevel(i);
+                }
+            }
+            s = s.Remove(0, 1);
+            Data.SetString(Constant.LEVEL_DATA, s);
+
+
         }
         else
         {
             NewRecordImage.SetActive(false);
         }
 
+        Debug.Log(Data.LevelData + " ; " + ConfigController.Level.LevelCount());
         NewScore.SetText(score + "");
         BestScore.SetText(Data.MaxScore + "");
     }
@@ -69,5 +87,6 @@ public class WinPopup : Popup
         NewRecordImage.SetActive(false);
         NewScore.SetText(score + "");
         BestScore.SetText(Data.MaxScore + "");
+        Debug.Log(Data.LevelData + " ; " + ConfigController.Level.LevelCount());
     }
 }

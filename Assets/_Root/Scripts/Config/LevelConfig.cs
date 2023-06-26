@@ -14,4 +14,8 @@ public class LevelConfig : ScriptableObject
     {
         return Levels.Count;
     }
+    public int MaxScoreLevel(int IndexLevel)
+    {
+        return int.Parse(Data.LevelData.Split("-")[IndexLevel].ToString());
+    }
 }

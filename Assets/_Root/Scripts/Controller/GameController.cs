@@ -25,6 +25,7 @@ public class GameController : Singleton<GameController>
 
         var level = ConfigController.Level.GetLevel(Data.IndexLevel);
         LevelCurrent = Instantiate(level, transform);
+        Data.SetInt(Constant.MAX_SCORE, ConfigController.Level.MaxScoreLevel(Data.IndexLevel));
     }
 
     public void NextLevel()
